@@ -14,7 +14,7 @@ from tornado.httpclient import AsyncHTTPClient
 class MainHandler(tornado.web.RequestHandler):
     async def get(self, listing_id):
         # await asyncio.sleep(3)
-        self.write("Hello, world {}".format(listing_id))
+        self.write(f"Hello, world {listing_id}")
 ​
 ​
 class BadExampleHandler(tornado.web.RequestHandler):
@@ -32,7 +32,7 @@ class CallAnotherService(tornado.web.RequestHandler):
         try:
             response = await http_client.fetch(url)
         except Exception as e:
-            print("Error: %s" % e)
+            print(f"Error: {e}")
         else:
             logging.info(response.body)
 ​
